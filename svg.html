@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma로 SVG 애니메이션 쉽게 조작하기</title>
+    <style>
+        .svg-box {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        svg {
+            position: absolute;
+        }
+
+        /* SUN */
+        svg:first-child {
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: sunAnim1 5s infinite ease-in-out;
+        }
+
+        #sun {
+            animation: sunAnim2 5s infinite ease-in-out;
+        }
+
+        /* WAVE */
+        svg:last-child {
+            bottom: 0;
+        }
+
+        #wave {
+            animation: waveAnim 5s infinite ease-in-out;
+        }
+
+        /* ANIMATION */
+        @keyframes sunAnim1 {
+            to {
+                bottom: 200px;
+            }
+        }
+
+        @keyframes sunAnim2 {
+            from {
+                fill: #FFDCDC;
+            }
+
+            to {
+                fill: orangered;
+            }
+        }
+
+        @keyframes waveAnim {
+            from {
+                opacity: 0.5;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svg-box">
+        <!-- SVG는 꼭 inline으로!(ID로 조작하기 위해)-->
+        <!-- SUN  -->
+        <svg width="154" height="154" viewBox="0 0 154 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle id="sun" cx="77" cy="77" r="77" fill="#FFDCDC" />
+        </svg>
+        <!-- WAVE -->
+        <svg width="799" height="248" viewBox="0 0 799 248" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="wave"
+                d="M284.323 41.5564C147.953 -4.72899 37.9536 31.037 0 54.7057V248H799V61.2804C662.104 -34.4463 556.36 2.98526 520.6 33.6669C482.164 83.1081 347.067 59.5271 284.323 41.5564Z"
+                fill="#FFF492" />
+        </svg>
+
+    </div>
+</body>
+
+</html>
